@@ -4,7 +4,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Wix Madefor Display', sans-serif;
 }
+/* navbar */
+
 .navbar {
     min-height: 80px;
     background-color: #FBFBFB;
@@ -14,6 +17,7 @@
     align-items: center;
     font-family: 'Wix Madefor Display', sans-serif;
 }
+
 
 #logoId {
     color: black;
@@ -31,5 +35,37 @@
 
 .navbar a {
     text-decoration: none;
+    color: black;
+    margin-right: 20px;
+}
+
+/* navbar */
+
+
+
+.slider {
+ max-height: 350px;
+}
+
+.slider img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* slider de imagenes */
+
+/* seccion tienda */
+
+.seccionTienda {
+    margin-top: 60px;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.seccionTienda a {
+    margin-left: 20px;
     color: black;
 }
