@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&family=Wix+Madefor+Display&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.navbar {
+    min-height: 80px;
+    background-color: #FBFBFB;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    align-items: center;
+    font-family: 'Wix Madefor Display', sans-serif;
+}
+
+#logoId {
+    color: black;
+    font-size: x-large;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    transition: 1s ease;
+}
+
+#logoId:hover {
+    color: orangered;
+    letter-spacing: 2px;
+    transition: 1s ease;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+}
