@@ -78,3 +78,17 @@
     height: 3px;
     background-color: black;
 }
+
+#seccionProductos {
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    column-gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#seccionProductos img {
+    width: 250px;
+    height: 250px;
+}

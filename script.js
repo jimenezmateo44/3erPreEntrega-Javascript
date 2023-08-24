@@ -3,7 +3,7 @@ const productos = [
         id: 1,
         nombre: 'Vans Tee amarilla',
         precio: 17500,
-        imagen: "./src/media/remeravans.jpeg",
+        imagen: "remeravans.jpeg",
         stock: 5,
         categoria: 'Remeras'
     },
@@ -11,7 +11,7 @@ const productos = [
         id: 2,
         nombre: 'Jordan Tee crema',
         precio: 21000,
-        imagen: "./src/media/remerajordan.jpeg",
+        imagen: 'remerajordan.jpeg',
         stock: 3,
         categoria: 'Remeras' 
     },
@@ -19,7 +19,7 @@ const productos = [
         id: 3,
         nombre: 'Nike Travis Scott low',
         precio: 1200000,
-        imagen: "./src/media/niketravisscott.jpeg",
+        imagen: 'niketravis.jpeg',
         stock: 1,
         categoria: 'Calzado'
     },
@@ -27,7 +27,7 @@ const productos = [
         id: 4,
         nombre: 'Nike Backpack negra',
         precio: 35000,
-        imagen: "./src/media/mochilanike.jpeg",
+        imagen: 'mochilanike.jpeg',
         stock: 4,
         categoria: 'Accesorios'
     },
@@ -35,7 +35,7 @@ const productos = [
         id: 5,
         nombre: 'Yankees New Era hat',
         precio: 14000,
-        imagen: "./src/media/gorranyc.jpeg",
+        imagen: 'gorranyc.jpeg',
         stock: 10,
         categoria: 'Accesorios'
     },
@@ -43,8 +43,22 @@ const productos = [
         id: 6,
         nombre: 'Buzo Urban Nike',
         precio: 60000,
-        imagen: "./src/media/buzonike.jpeg",
+        imagen: 'buzonike.jpeg',
         stock: 5,
         categoria: 'Buzos'
     },
 ];
+
+let contenedorProductos = document.getElementById("seccionProductos");
+
+productos.forEach(producto => {
+   let tarjetaProductos = document.createElement("div")
+   tarjetaProductos.innerHTML = `
+   <h3>${producto.nombre}</h3>
+   <img src=./src/media/${producto.imagen}>
+   <p>$${producto.precio}</p>
+   `
+
+
+    contenedorProductos.appendChild(tarjetaProductos)
+})
