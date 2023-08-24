@@ -5,12 +5,13 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Wix Madefor Display', sans-serif;
+    background-color: #F8EFE0;
 }
 /* navbar */
 
 .navbar {
     min-height: 80px;
-    background-color: #FBFBFB;
+    background-color: #F8EFE0;
     display: flex;
     justify-content: space-around;
     list-style: none;
@@ -68,4 +69,12 @@
 .seccionTienda a {
     margin-left: 20px;
     color: black;
+}
+
+.divider {
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 3px;
+    background-color: black;
 }
