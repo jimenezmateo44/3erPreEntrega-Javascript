@@ -5,13 +5,13 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Wix Madefor Display', sans-serif;
-    background-color: #F8EFE0;
+    /* background-color: #F8EFE0; */
 }
 /* navbar */
 
 .navbar {
     min-height: 80px;
-    background-color: #F8EFE0;
+    background-color: #E88504;
     display: flex;
     justify-content: space-around;
     list-style: none;
@@ -29,7 +29,7 @@
 }
 
 #logoId:hover {
-    color: orangered;
+    color: #F8EFE0;
     letter-spacing: 2px;
     transition: 1s ease;
 }
@@ -80,15 +80,50 @@
 }
 
 #seccionProductos {
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     margin-left: 100px;
     margin-right: 100px;
     display: flex;
-    column-gap: 20px;
+    row-gap: 60px;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 #seccionProductos img {
     width: 250px;
     height: 250px;
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #F8EFE0;
+    border-radius: 5px;
+    padding: 20px;
+    
+}
+
+.tarjeta h3 {
+    align-self: center;
+}
+
+.tarjeta img {
+    margin: 20px;
+}
+
+.tarjeta p {
+    align-self: center;
+    font-size: 25px;
+}
+
+.btnAgregarCarrito {
+    text-decoration: none;
+    color: black;
+    background-color: #E88504;  
+    border-radius: 5px;
+    padding: 10px;
+    width: fit-content;
+    margin-top: 10px;
+    align-self: center;
 }

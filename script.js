@@ -53,10 +53,12 @@ let contenedorProductos = document.getElementById("seccionProductos");
 
 productos.forEach(producto => {
    let tarjetaProductos = document.createElement("div")
+   tarjetaProductos.classList.add("tarjeta");
    tarjetaProductos.innerHTML = `
-   <h3>${producto.nombre}</h3>
    <img src=./src/media/${producto.imagen}>
+   <h3>${producto.nombre}</h3>
    <p>$${producto.precio}</p>
+   <a href="#" class="btnAgregarCarrito">Agregar al carrito</a>
    `
 
 
