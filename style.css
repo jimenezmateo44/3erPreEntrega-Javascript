@@ -47,6 +47,9 @@
 
 /* navbar */
 
+:placeholder-shown {
+    text-align: center;
+}
 
 
 .slider {
@@ -62,27 +65,41 @@
 /* slider de imagenes */
 
 /* BUSCADOR Y FILTRADO */
+.inactive {
+    display: none;
+}
+
+.active {
+    display: inline;
+}
+
+.activeForm {
+   display: flex;
+   margin-top: 20px;
+   margin-left: 15px;
+}
+
 .toggleSearch {
     justify-self: flex-start;
+}
+
+.searchArea {
+    display: flex;
+    align-items: center;
 }
 
 #inputSearch {
     width: 300px;
     height: 25px;
-}
-.searchInactive {
-    transition: 2s ease;
-    display: none;
-}
-
-.searchActive {
-    display: inline;
-    transition: 2s ease;
+    border: 1.5px solid black;
+    border-radius: 3px;
+    padding: 10px;
 }
 
-.checkActive {
-    display: inline;
+#inputCheck {
+   margin-top: 4.5px;
 }
+
 /* BUSCADOR Y FILTRADO */
 
 /* seccion tienda */
@@ -255,3 +272,4 @@ footer input {
     margin-top: 100px;
 }
 /* FOOTER */
+

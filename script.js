@@ -81,8 +81,16 @@ let inputBuscador = document.getElementById("inputSearch");
 let inputCheck = document.getElementById("inputCheck");
 
 buscadorProductos.addEventListener('click', () => {
-    inputBuscador.classList.toggle("searchActive")
-    inputCheck.classList.toggle("checkActive")
+    inputBuscador.classList.toggle("active")
+    inputCheck.classList.toggle("active")
+})
+
+//filtrar productos
+let filtradorProductos = document.getElementById("svgFiltrar");
+let formFiltrado = document.getElementById("formFiltrar");
+
+filtradorProductos.addEventListener('click', () => {
+    formFiltrado.classList.toggle("activeForm")
 })
 
 
