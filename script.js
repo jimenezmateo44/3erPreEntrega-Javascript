@@ -49,6 +49,8 @@ const productos = [
     },
 ];
 
+//renderizado de productos
+
 let contenedorProductos = document.getElementById("seccionProductos");
 
 productos.forEach(producto => {
@@ -70,6 +72,30 @@ productos.forEach(producto => {
     contenedorProductos.appendChild(tarjetaProductos)
 })
 
+//renderizado de productos
+
+//buscar productos
+
+let buscadorProductos = document.getElementById("svgBuscar");
+let inputBuscador = document.getElementById("inputSearch");
+let inputCheck = document.getElementById("inputCheck");
+
+buscadorProductos.addEventListener('click', () => {
+    inputBuscador.classList.toggle("searchActive")
+    inputCheck.classList.toggle("checkActive")
+})
+
+
+
+
+
+
+
+
+
+
+// footer
+
 let currentYear = new Date().getFullYear();
 
 let copyFooter = document.getElementById("copyright");
@@ -77,3 +103,4 @@ let copyFooter = document.getElementById("copyright");
 copyFooter.innerHTML = `
     <p>Desarrollado por Mateo Jimenez. Todos los derechos reservados &copy ${currentYear}</p>
 `
+//footer

@@ -6,7 +6,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Wix Madefor Display', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
+
     /* background-color: #F8EFE0; */
 }
 /* navbar */
@@ -24,11 +25,11 @@
 
 #logoId {
     color: black;
-    font-size: x-large;
+    font-size: 30px;
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     transition: 1s ease;
-    margin-right: 100px;
+    margin-right: 60px;
 }
 
 #logoId:hover {
@@ -41,6 +42,7 @@
     text-decoration: none;
     color: black;
     margin-right: 20px;
+    font-size: 20px;
 }
 
 /* navbar */
@@ -58,6 +60,30 @@
 }
 
 /* slider de imagenes */
+
+/* BUSCADOR Y FILTRADO */
+.toggleSearch {
+    justify-self: flex-start;
+}
+
+#inputSearch {
+    width: 300px;
+    height: 25px;
+}
+.searchInactive {
+    transition: 2s ease;
+    display: none;
+}
+
+.searchActive {
+    display: inline;
+    transition: 2s ease;
+}
+
+.checkActive {
+    display: inline;
+}
+/* BUSCADOR Y FILTRADO */
 
 /* seccion tienda */
 
@@ -171,15 +197,17 @@
 }
 
 .about p {
-    font-family: 'Mukta', sans-serif;;
-    font-weight: 400;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 20px;
+    color: #3e3631;
     text-align: justify;
     margin-top: 30px;
     margin-left: 100px;
     margin-right: 100px;
 }
 
+
+/* FOOTER */
 footer {
     min-height: 300px;
     margin-top: 100px;
@@ -194,6 +222,7 @@ footer h3 {
 footer input {
     height: 30px;
     width: 400px;
+    padding: 10px;
 }
 
 #btn-Newsletter {
@@ -223,5 +252,6 @@ footer input {
 #copyright {
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 100px;
 }
+/* FOOTER */
