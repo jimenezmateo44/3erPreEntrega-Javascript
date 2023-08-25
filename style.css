@@ -178,6 +178,7 @@
 .agregarFavoritos {
     margin-top: 12px;
     transition: 1s ease;
+    text-decoration: none;
 }
 
 .agregarFavoritos:hover {
