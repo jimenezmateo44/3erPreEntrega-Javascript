@@ -63,9 +63,23 @@
     object-fit: cover;
 }
 
+.slider img:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 1s ease-in-out;
+}
+
 /* slider de imagenes */
 
 /* BUSCADOR Y FILTRADO */
+#svgBuscar:hover {
+    cursor: pointer;
+}
+
+#svgFiltrar:hover {
+    cursor: pointer;
+}
+
 .inactive {
     display: none;
 }
@@ -183,7 +197,7 @@
 }
 
 .agregarFavoritos:hover {
-    color: red
+    cursor: pointer;
 }
 
 .btnAgregarCarrito {
@@ -203,6 +217,7 @@
 }
 
 .btnAgregarCarrito:hover {
+    cursor: pointer;
     transform: .5s ease;
     color: #F8EFE0;
     background-color: #3E3636;
