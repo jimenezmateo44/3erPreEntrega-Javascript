@@ -73,6 +73,33 @@ const productos = [
     },
 ];
 
+//AGREGAR PRODUCTOS AL CARRITO
+const addToCartEvent = () => {
+    let agregarCarrito = document.querySelectorAll(".btnAgregarCarrito");
+
+
+    agregarCarrito.forEach(agregarCarrito => {
+        agregarCarrito.addEventListener('click', () => {
+            //toastify notificacion
+            Toastify({
+                text: "Producto agregado al carrito!",
+                close: false,
+                style: {
+                    background: "#F8EFE0",
+                    color: 'black'
+                },
+                duration: 3000,
+                gravity: 'top',
+                position: 'right'
+            }).showToast();
+            //toastify notificacion
+        
+        })
+    })
+}
+
+// FIN AGREGAR PRODUCTOS AL CARRITO
+
 //RENDERIZADO PRODUCTOS
 
 const renderizarTarjetas = (productos) => {
@@ -102,41 +129,17 @@ const renderizarTarjetas = (productos) => {
 };
 
 renderizarTarjetas(productos);
+addToCartEvent();
 
 //FIN RENDERIZADO PRODUCTOS
 
-//AGREGAR PRODUCTOS AL CARRITO
-let agregarCarrito = document.querySelectorAll(".btnAgregarCarrito");
-
-const agregarCarritoToast = (agregarCarrito) => {
-    agregarCarrito.forEach(agregarCarrito => {
-        agregarCarrito.addEventListener('click', () => {
-            //toastify notificacion
-            Toastify({
-                text: "Producto agregado al carrito!",
-                close: false,
-                style: {
-                    background: "#F8EFE0",
-                    color: 'black'
-                },
-                duration: 3000,
-                gravity: 'top',
-                position: 'right'
-            }).showToast();
-            //toastify notificacion
-        
-        })
-    })
-}
-
-agregarCarritoToast(agregarCarrito);
-
-// FIN AGREGAR PRODUCTOS AL CARRITO
 
 //BUSCAR PRODUCTOS
 const buscarProductos = (productos, inputBuscador) => {
     let productosEncontrados = productos.filter(producto => producto.nombre.includes(inputBuscador.value.toUpperCase()));
     renderizarTarjetas(productosEncontrados);
+    addToCartEvent();
+
 }
 
 let buscadorProductos = document.getElementById("svgBuscar");
@@ -161,14 +164,15 @@ inputBuscador.addEventListener('keydown', (event) => {
 //FIN BUSCAR PRODUCTOS
 
 //FILTRAR PRODUCTOS
-
 const buscarProductosPorCategoria = (productos, categoriaSeleccionada) => {
     if (categoriaSeleccionada === "default") {
         renderizarTarjetas(productos);  
+        addToCartEvent();
         return;
     }
     let productosEncontrados = productos.filter(producto => producto.categoria === categoriaSeleccionada);
     renderizarTarjetas(productosEncontrados);
+    addToCartEvent();
 }
 
 let formFiltrado = document.getElementById("formFiltrar");
@@ -189,24 +193,11 @@ let filtradorProductos = document.getElementById("svgFiltrar");
 filtradorProductos.addEventListener('click', () => {
     formFiltrado.classList.toggle("activeForm")
 })
-
-
-
-//
-
 //FIN FILTRAR PRODUCTOS
-
-
-
-
-
-
-
 
 // footer
 
 let currentYear = new Date().getFullYear();
-
 let copyFooter = document.getElementById("copyright");
 
 copyFooter.innerHTML = `
