@@ -81,8 +81,8 @@ window.onload = () => {
 //AGREGAR PRODUCTOS AL CARRITO
 let carrito = [];
 
-
-const addToCartEvent = () => {
+//Funcion de animacion toastify
+const addToCartToastify = () => {
     let agregarCarrito = document.querySelectorAll(".btnAgregarCarrito");
 
     agregarCarrito.forEach(agregarCarrito => {
@@ -104,6 +104,26 @@ const addToCartEvent = () => {
         })
     })
 }
+
+ //Invocar la funcion de agregar al carrito con el productoId
+const agregarAlCarrito = (productos, evento, carrito) => {
+    let productoOriginal = productos.find(producto => producto.id === Number(evento.target.id))
+    let productoEnCarrito = carrito.find(producto => producto.id === productoOriginal.id)
+
+    productoEnCarrito ? (
+        productoEnCarrito.unidades++,
+        productoEnCarrito.subtotal = productoEnCarrito.unidades * productoEnCarrito.precio
+    ) : (
+        carrito.push({
+            id: productoOriginal.id,
+            nombre: productoOriginal.nombre,
+            precio: productoOriginal.precio,
+            unidades: 1,
+            subtotal: productoOriginal.precio 
+        }),
+        console.log(carrito)
+    ) 
+ }
 
 
 // FIN AGREGAR PRODUCTOS AL CARRITO
@@ -132,35 +152,16 @@ const renderizarTarjetas = (productos) => {
     `
         contenedorProductos.appendChild(tarjetaProductos);
 
-        let productoId = document.getElementById(id);
+        const productoId = document.getElementById(id);
 
+         //Invocar la funcion de agregar al carrito con el productoId
         productoId.addEventListener('click', (e) => agregarAlCarrito(productos, e, carrito))
     })
 };
 
 
 renderizarTarjetas(productos);
-addToCartEvent();
-
- //Invocar la funcion de agregar al carrito con el productoId
- const agregarAlCarrito = (productos, evento, carrito) => {
-    let productoOriginal = productos.find(producto => producto.id === Number(evento.target.id))
-    let productoEnCarrito = carrito.find(producto => producto.id === productoOriginal.id)
-
-    if (productoEnCarrito) {
-        productoEnCarrito.unidades++;
-        productoEnCarrito.subtotal = productoEnCarrito.unidades * productoEnCarrito.precio;
-    } else {
-        carrito.push({
-            id: productoOriginal.id,
-            nombre: productoOriginal.nombre,
-            precio: productoOriginal.precio,
-            unidades: 1,
-            subtotal: productoOriginal.precio 
-        })
-    }
-    console.log(carrito);
-}
+addToCartToastify(); //Funcion de animacion toastify
 
 //FIN RENDERIZADO PRODUCTOS
 
@@ -169,7 +170,7 @@ addToCartEvent();
 const buscarProductos = (productos, inputBuscador) => {
     let productosEncontrados = productos.filter(producto => producto.nombre.includes(inputBuscador.value.toUpperCase()));
     renderizarTarjetas(productosEncontrados);
-    addToCartEvent();
+    addToCartToastify();
 
 }
 
@@ -198,12 +199,12 @@ inputBuscador.addEventListener('keydown', (event) => {
 const buscarProductosPorCategoria = (productos, categoriaSeleccionada) => {
     if (categoriaSeleccionada === "default") {
         renderizarTarjetas(productos);  
-        addToCartEvent();
+        addToCartToastify();
         return;
     }
     let productosEncontrados = productos.filter(producto => producto.categoria === categoriaSeleccionada);
     renderizarTarjetas(productosEncontrados);
-    addToCartEvent();
+    addToCartToastify();
 }
 
 let formFiltrado = document.getElementById("formFiltrar");
