@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "nombre": "VANS TEE AMARILLA",
+        "precio": 17500,
+        "imagen": "remeravans.jpeg",
+        "stock": 5,
+        "categoria": "Remeras"
+    },
+    {
+        "id": 2,
+        "nombre": "JORDAN TEE CREMA",
+        "precio": 21000,
+        "imagen": "remerajordan.jpeg",
+        "stock": 3,
+        "categoria": "Remeras"
+    },
+    {
+        "id": 3,
+        "nombre": "NIKE TRAVIS SCOTT LOW",
+        "precio": 1200000,
+        "imagen": "niketravis.jpeg",
+        "stock": 1,
+        "categoria": "Calzado"
+    },
+    {
+        "id": 4,
+        "nombre": "NIKE BACKPACK NEGRA",
+        "precio": 35000,
+        "imagen": "mochilanike.jpeg",
+        "stock": 4,
+        "categoria": "Accesorios"
+    },
+    {
+        "id": 5,
+        "nombre": "YANKEES NEW ERA HAT",
+        "precio": 14000,
+        "imagen": "gorranyc.jpeg",
+        "stock": 10,
+        "categoria": "Accesorios"
+    },
+    {
+        "id": 6,
+        "nombre": "BUZO URBAN NIKE",
+        "precio": 60000,
+        "imagen": "buzonike.jpeg",
+        "stock": 5,
+        "categoria": "Buzos"
+    },
+    {
+        "id": 7,
+        "nombre": "PILUSO ADIDAS CLASSIC",
+        "precio": 19000,
+        "imagen": "pilusoadidas.jpeg",
+        "stock": 5,
+        "categoria": "Accesorios"
+    },
+    {
+        "id": 8,
+        "nombre": "BUZO PUMA STREET",
+        "precio": 52000,
+        "imagen": "buzopuma.jpeg",
+        "stock": 5,
+        "categoria": "Buzos"
+    },
+    {
+        "id": 9,
+        "nombre": "RIÑONERA JORDAN",
+        "precio": 23000,
+        "imagen": "rinonerajordan.jpeg",
+        "stock": 5,
+        "categoria": "Accesorios"
+    }
+]
