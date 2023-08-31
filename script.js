@@ -81,6 +81,10 @@ window.onload = () => {
 //AGREGAR PRODUCTOS AL CARRITO
 let carrito = [];
 
+if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+}
+
 //Funcion de animacion toastify
 const addToCartToastify = () => {
     let agregarCarrito = document.querySelectorAll(".btnAgregarCarrito");
@@ -124,7 +128,9 @@ const agregarAlCarrito = (productos, evento, carrito) => {
         }),
         console.log(carrito)
     )
-    renderizarCarrito(carrito)
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    renderizarCarrito(carrito);
 }
 
 // FIN AGREGAR PRODUCTOS AL CARRITO
@@ -198,24 +204,63 @@ inputBuscador.addEventListener('keydown', (event) => {
 
 //RENDERIZADO DE CARRITO
 let botonVerCarrito = document.getElementById("btnVerCarrito");
+let contenedor =  document.getElementById("seccionCarrito");
 
 const renderizarCarrito = (productos) => {
-    let contenedor =  document.getElementById("seccionCarrito");
-    contenedor.innerHTML = "";
+     contenedor.innerHTML = "";
 
-    productos.forEach(( {nombre, precio, unidades, subtotal, imagen }) => {
-        let tarjetaProducto = document.createElement("div");
-        tarjetaProducto.className = "tarjetaCarrito";
-        tarjetaProducto.innerHTML = `
-            <img id="imgCarrito" src=./src/media/${imagen}>
-            <p>${nombre}</p>
-            <p>$${precio}</p>
-            <p>${unidades}</p>
-            <p>$${subtotal}</p> 
+    let opcionesCompra = document.createElement("div");
+    opcionesCompra.className = "opcionesCompra";
+
+    if (carrito.length === 0) {
+        opcionesCompra.innerHTML = `
+        <p class="carritoVacio">Aun no hay productos en el carrito :(</p>
         `
-        contenedor.appendChild(tarjetaProducto);
-    })
-}
+        contenedor.append(opcionesCompra);
+    } else {
+            let infoCompra = document.createElement("div");
+            infoCompra.className="infoCompra";
+            infoCompra.innerHTML = `
+                <h2>Tu carrito</h2>    
+            ` 
+            contenedor.append(infoCompra);
+            productos.forEach(( {nombre, precio, unidades, subtotal, imagen }) => {
+                let tarjetaProducto = document.createElement("div");
+
+                tarjetaProducto.className = "tarjetaCarrito";
+                tarjetaProducto.innerHTML = `
+                    <img id="imgCarrito" src=./src/media/${imagen}>
+                    <p><span>Nombre</span> <br>${nombre}</p>
+                    <p><span>Precio</span> <br>$${precio}</p>
+                    <p><span>Cantidad</span> <br>${unidades}</p>
+                    <p><span>Subtotal</span> <br>$${subtotal}</p>
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                        </svg>
+                    </a> 
+                `
+                contenedor.appendChild(tarjetaProducto);
+            })
+
+
+     opcionesCompra.innerHTML = `
+        <div>
+            <a id="btnFinalizarCompra">Finalizar Compra</a>
+            <a id="btnSeguirCompra">Seguir Comprando</a>
+        </div>
+        
+     `
+     contenedor.append(opcionesCompra);
+     }
+} //Fin funcion renderizar carrito
+
+botonVerCarrito.addEventListener('click', () => {
+    contenedor.classList.toggle("carritoActive");
+    renderizarCarrito(carrito);
+})
+
 
 //FIN RENDERIZADO DE CARRITO
 

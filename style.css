@@ -14,6 +14,10 @@
 /* navbar */
 
 .navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 2000;
     min-height: 80px;
     background-color: #F8EFE0;
     display: flex;
@@ -65,8 +69,13 @@
 
 .slider img:hover {
     cursor: pointer;
-    opacity: 0.9;
-    transition: 1s ease-in-out;
+}
+
+.no-select {
+    user-select: none; /* Evita la selección de texto */
+    -webkit-user-drag: none; /* Deshabilita el arrastrar de la imagen en WebKit */
+    -webkit-touch-callout: none; /* Deshabilita el menú emergente en dispositivos táctiles en WebKit */
+    outline: none; /* Elimina el contorno al hacer clic en la imagen */
 }
 
 /* slider de imagenes */
@@ -81,30 +90,78 @@
 }
 #seccionCarrito {
     position: fixed;
-    display: block;
     background-color: white;
     border: 1px solid black;
-    height: 500px;
+    height: 620px;
     width: 900px;
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%);
     z-index: 1000;
-    overflow: auto;
+    overflow:auto;
+}
+
+.carritoInactive {
+    display: none;
+}
+
+.carritoActive {
+    display: block;
 }
 
 .tarjetaCarrito {
-    margin: 10px;
+    margin: 20px;
     padding: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 1px 1px 2px -1px black;
+    border: 1px solid black;
+}
+
+.tarjetaCarrito p {
+    font-weight: 800;
+}
+.tarjetaCarrito p span {
+    color: #E27602;
+}
+
+.tarjetaCarrito a:hover {
+    cursor: pointer;
 }
 
 #imgCarrito {
     border-radius: 10px;
-    height: 60px;
+    height: 80px;
+}
+
+#btnVerCarrito:hover {
+    cursor: pointer;
+}
+
+.carritoVacio {
+    margin: 40px;
+    font-size: 80px
+}
+
+.infoCompra {
+   font-size: 20px;
+   color: #E27602; 
+   margin: 25px;
+}
+.opcionesCompra {
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.opcionesCompra a {
+    margin: 10px;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid ;
 }
 
 /* SECCION CARRITO */
