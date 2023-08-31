@@ -212,7 +212,8 @@ const renderizarCarrito = (productos) => {
     let opcionesCompra = document.createElement("div");
     opcionesCompra.className = "opcionesCompra";
 
-    if (carrito.length === 0) {
+    if (carrito.length === 0 || localStorage.length === 0) {
+        carrito = [];
         opcionesCompra.innerHTML = `
         <p class="carritoVacio">Aun no hay productos en el carrito :(</p>
         `
@@ -257,8 +258,9 @@ const renderizarCarrito = (productos) => {
 } //Fin funcion renderizar carrito
 
 botonVerCarrito.addEventListener('click', () => {
-    contenedor.classList.toggle("carritoActive");
     renderizarCarrito(carrito);
+    contenedor.classList.toggle("carritoActive");
+    
 })
 
 
