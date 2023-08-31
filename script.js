@@ -3,7 +3,7 @@ const productos = [
         id: 1,
         nombre: 'VANS TEE AMARILLA',
         precio: 17500,
-        imagen: "remeravans.jpeg",
+        imagen: 'remeravans.jpeg',
         stock: 5,
         categoria: 'Remeras'
     },
@@ -119,12 +119,13 @@ const agregarAlCarrito = (productos, evento, carrito) => {
             nombre: productoOriginal.nombre,
             precio: productoOriginal.precio,
             unidades: 1,
-            subtotal: productoOriginal.precio
+            subtotal: productoOriginal.precio,
+            imagen: productoOriginal.imagen
         }),
         console.log(carrito)
     )
+    renderizarCarrito(carrito)
 }
-
 
 // FIN AGREGAR PRODUCTOS AL CARRITO
 
@@ -195,6 +196,29 @@ inputBuscador.addEventListener('keydown', (event) => {
 
 //FIN BUSCAR PRODUCTOS
 
+//RENDERIZADO DE CARRITO
+let botonVerCarrito = document.getElementById("btnVerCarrito");
+
+const renderizarCarrito = (productos) => {
+    let contenedor =  document.getElementById("seccionCarrito");
+    contenedor.innerHTML = "";
+
+    productos.forEach(( {nombre, precio, unidades, subtotal, imagen }) => {
+        let tarjetaProducto = document.createElement("div");
+        tarjetaProducto.className = "tarjetaCarrito";
+        tarjetaProducto.innerHTML = `
+            <img id="imgCarrito" src=./src/media/${imagen}>
+            <p>${nombre}</p>
+            <p>$${precio}</p>
+            <p>${unidades}</p>
+            <p>$${subtotal}</p> 
+        `
+        contenedor.appendChild(tarjetaProducto);
+    })
+}
+
+//FIN RENDERIZADO DE CARRITO
+
 //FILTRAR PRODUCTOS
 const buscarProductosPorCategoria = (productos, categoriaSeleccionada) => {
     if (categoriaSeleccionada === "default") {
@@ -226,6 +250,7 @@ filtradorProductos.addEventListener('click', () => {
     formFiltrado.classList.toggle("activeForm");
 });
 //FIN FILTRAR PRODUCTOS
+
 
 // footer
 

@@ -71,6 +71,44 @@
 
 /* slider de imagenes */
 
+/* SECCION CARRITO */
+.infoCarrito {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+#seccionCarrito {
+    position: fixed;
+    display: block;
+    background-color: white;
+    border: 1px solid black;
+    height: 500px;
+    width: 900px;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.tarjetaCarrito {
+    margin: 10px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 2px -1px black;
+}
+
+#imgCarrito {
+    border-radius: 10px;
+    height: 60px;
+}
+
+/* SECCION CARRITO */
+
 /* BUSCADOR Y FILTRADO */
 #svgBuscar:hover {
     cursor: pointer;
