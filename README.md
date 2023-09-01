@@ -1,4 +1,4 @@
-# 3erPreEntrega-Javascript
+# 3erPreEntrega-Javascript | Mateo Jimenez
 
 Proyecto en desarrollo para curso de Javascript de CoderHouse comision #58110.
 
