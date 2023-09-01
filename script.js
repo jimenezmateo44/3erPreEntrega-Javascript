@@ -85,7 +85,7 @@ if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
 }
 
-//Funcion de animacion toastify
+//Funcion de animacion toastify "Producto agregado al carrito!"
 const addToCartToastify = () => {
     let agregarCarrito = document.querySelectorAll(".btnAgregarCarrito");
 
@@ -224,7 +224,12 @@ const renderizarCarrito = (productos) => {
             infoCompra.className="infoCompra";
 
             infoCompra.innerHTML = `
-                <h2>Tu carrito</h2>    
+                <h2>Tu carrito</h2>
+                <a id="btnCerrarCarrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                    </svg>
+                </a>   
             `;
             contenedor.append(infoCompra);
 
@@ -240,7 +245,7 @@ const renderizarCarrito = (productos) => {
                     <p><span>Cantidad</span> <br>${unidades}</p>
                     <p><span>Subtotal</span> <br>$${subtotal}</p>
                     <a id="${id}" class="botonEliminarCarrito">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#E27602" class="bi bi-trash" viewBox="0 0 16 16">
                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
                             <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                         </svg>
@@ -251,7 +256,7 @@ const renderizarCarrito = (productos) => {
 
 
         opcionesCompra.innerHTML = `
-            <div>
+            <div class="botonesCarrito">
                 <a id="btnFinalizarCompra">Finalizar Compra</a>
                 <a id="btnSeguirCompra">Seguir Comprando</a>
             </div>
@@ -287,8 +292,27 @@ const renderizarCarrito = (productos) => {
                 eliminarDelCarrito(boton.id, productos);
             });
         });
+
+        let botonCerrarCarrito = document.getElementById("btnCerrarCarrito");
+            
+        botonCerrarCarrito.addEventListener('click', () => {
+            contenedor.classList.remove("carritoActive");
+        });
+
+        let botonSeguirCompra = document.getElementById("btnSeguirCompra");
         
-        }
+        botonSeguirCompra.addEventListener('click', () => {
+            contenedor.classList.remove("carritoActive");
+        });
+
+        let botonFinalizarCompra = document.getElementById("btnFinalizarCompra");
+            botonFinalizarCompra.addEventListener('click', () => {
+                finalizarCompraToastify();
+                contenedor.classList.remove("carritoActive");
+                localStorage.clear();
+                
+            });
+    }
 } //Fin funcion renderizar carrito
 
 botonVerCarrito.addEventListener('click', () => {
@@ -296,8 +320,24 @@ botonVerCarrito.addEventListener('click', () => {
     contenedor.classList.toggle("carritoActive");    
 });
 
-
 //FIN RENDERIZADO DE CARRITO
+
+//Funcion de animacion toastify "Compra realizada con exito!"
+const finalizarCompraToastify = () => {
+            //toastify notificacion
+            Toastify({
+                text: "Compra realizada con exito!",
+                close: false,
+                style: {
+                    background: "#198754",
+                    color: 'white'
+                },
+                duration: 3000,
+                gravity: 'top',
+                position: 'right'
+            }).showToast();
+            //toastify notificacion
+}
 
 //FILTRAR PRODUCTOS
 const buscarProductosPorCategoria = (productos, categoriaSeleccionada) => {
