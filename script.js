@@ -131,8 +131,8 @@ const agregarAlCarrito = (productos, evento, carrito) => {
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
     renderizarCarrito(carrito);
+    console.log(contadorProductos)
 }
-
 // FIN AGREGAR PRODUCTOS AL CARRITO
 
 //RENDERIZADO PRODUCTOS
@@ -276,13 +276,12 @@ const renderizarCarrito = (productos) => {
                     // Si solo hay una unidad, elimina el producto del carrito
                     carrito = productos.filter(producto => producto.id !== Number(productoId));
                 }
-        
                 localStorage.setItem("carrito", JSON.stringify(carrito));
                 renderizarCarrito(carrito);
-            }     
+            }    
         }
         //FIN FUNCION ELIMINAR DEL CARRITO
-
+            
         //BOTON ELIMINAR DEL CARRITO
         let botonEliminarCarrito = document.querySelectorAll(".botonEliminarCarrito");
         
@@ -314,7 +313,6 @@ const renderizarCarrito = (productos) => {
             });
     }
 } //Fin funcion renderizar carrito
-
 botonVerCarrito.addEventListener('click', () => {
     renderizarCarrito(carrito);
     contenedor.classList.toggle("carritoActive");    
@@ -330,7 +328,7 @@ const finalizarCompraToastify = () => {
                 close: false,
                 style: {
                     background: "#198754",
-                    color: 'white'
+                    color: 'white',
                 },
                 duration: 3000,
                 gravity: 'top',

@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&family=Wix+Madefor+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+$colorCrema: #F8EFE0;
+$colorNaranja: #E27602;
+$colorGrisOscuro: #3E3636;
+$colorGrisSuave: #bbbbbb;
+$colorBordeTarjeta: #f5f5f5;
+$letraPrincipal: 'Bebas Neue', sans-serif;
+$letraSecundaria: 'Wix Madefor Display', sans-serif;
+$letraTerciaria: 'Raleway', sans-serif;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $letraPrincipal;
+}
+
+/* NAVBAR */
+
+.navbar {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+	min-height: 80px;
+	background-color: $colorCrema;
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+	align-items: center;
+	font-family: $letraSecundaria;
+	
+	a {
+		text-decoration: none;
+		color: black;
+		margin-right: 20px;
+		font-size: 20px;
+	}
+	
+	#logoId {
+	color: black;
+	font-size: 30px;
+	font-family: $letraTerciaria;
+	font-weight: 800;
+	transition: 1s ease;
+	margin-right: 60px;
+    	&:hover {
+    		color: $colorNaranja;
+    		letter-spacing: 2px;
+    		transition: 1s ease;
+	    }
+    }
+    #btnVerCarrito:hover {
+    cursor: pointer;
+    }
+    
+    #cantProductosCarrito {
+    	font-size: 18px;
+    	color: $colorGrisOscuro;
+    }
+
+}
+
+/* FIN NAVBAR */
+
+/* IMAGEN BE CREATIVE */
+
+:placeholder-shown {
+	text-align: center;
+}
+
+.slider {
+	max-height: 350px;
+	
+	img {
+		width: 100%;
+		height: 350px;
+		object-fit: cover;
+	}
+}
+.no-select {
+	user-select: none;
+	-webkit-user-drag: none;
+	-webkit-touch-callout: none;
+	outline: none;
+}
+
+/* FIN IMAGEN BE CREATIVE */
+
+/* SECCION CARRITO */
+
+.infoCarrito {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+#seccionCarrito {
+	position: fixed;
+	background-color: white;
+	border: 1px solid $colorGrisSuave;
+	border-radius: 3px;
+	height: 70vh;
+	width: 60vw;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+	overflow: auto;
+}
+
+.carritoInactive {
+	display: none;
+}
+
+.carritoActive {
+	display: block;
+}
+
+.tarjetaCarrito {
+	margin: 20px;
+	padding: 25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid $colorGrisSuave;
+	border-radius: 3px;
+	
+	p {
+		font-weight: 800;
+		span {
+			color: $colorNaranja;
+		}
+	}
+	
+	a {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+#imgCarrito {
+	border-radius: 10px;
+	height: 80px;
+}
+
+#btnVerCarrito {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.carritoVacio {
+	margin: 40px;
+	font-size: 80px;
+}
+
+.infoCompra {
+	position: sticky;
+	top: 0;
+	height: 80px;
+	z-index: 1000;
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 20px;
+	color: $colorNaranja;
+	margin: 25px;
+}
+
+#btnCerrarCarrito {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.opcionesCompra {
+	margin-top: 30px;
+	margin-right: 10px;
+	margin-bottom: 30px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	
+	a {
+		margin: 10px;
+		font-size: 20px;
+		padding: 10px;
+		border: 1px solid;
+	}
+}
+
+.botonesCarrito {
+	
+	a {
+		border-radius: 3px;
+		border: 1px solid black;
+		background-image: linear-gradient(to top, white 50%, #000 50%),
+            linear-gradient(to top, $colorNaranja 50%, transparent 50%);
+		-webkit-background-clip: text, padding-box;
+		background-clip: text, padding-box;
+		-webkit-text-fill-color: transparent;
+		color: transparent;
+		background-size: 100% 200%;
+		background-position: top;
+		transition: background-position 0.5s ease-in-out;
+		
+		&:hover {
+			cursor: pointer;
+			background-position: bottom;
+		}
+	}
+}
+
+/* FIN SECCION CARRITO */
+
+/* BUSCADOR Y FILTRADO */
+
+#svgBuscar {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+#svgFiltrar {
+	
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.inactive {
+	display: none;
+}
+
+.active {
+	display: inline;
+}
+
+.activeForm {
+	display: flex;
+	margin-top: 20px;
+	margin-left: 15px;
+}
+
+.toggleSearch {
+	justify-self: flex-start;
+}
+
+.searchArea {
+	display: flex;
+	align-items: center;
+}
+
+#inputSearch {
+	width: 300px;
+	height: 25px;
+	border: 1.5px solid black;
+	border-radius: 3px;
+	padding: 10px;
+}
+
+#inputCheck {
+	margin-top: 4.5px;
+}
+
+/* FIN BUSCADOR Y FILTRADO */
+
+/* SECCION TIENDA */
+
+.seccionTienda {
+	margin-top: 60px;
+	margin-left: 100px;
+	margin-right: 100px;
+	display: flex;
+	justify-content: space-between;
+	
+	a {
+		margin-left: 20px;
+		color: black;
+	}
+}
+
+.divider {
+	margin-top: 20px;
+	margin-left: 100px;
+	margin-right: 100px;
+	height: 3px;
+	background-color: black;
+}
+
+#seccionProductos {
+	margin-top: 50px;
+	margin-bottom: 100px;
+	margin-left: 100px;
+	margin-right: 100px;
+	display: flex;
+	row-gap: 60px;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	img {
+		width: 250px;
+		height: 250px;
+	}
+}
+
+.tarjeta {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid $colorBordeTarjeta;
+	border-radius: 5px;
+	padding: 20px;
+	
+	h3 {
+		align-self: center;
+	}
+	
+	img {
+		margin: 20px;
+	}
+	
+	p {
+		margin-top: 20px;
+		align-self: center;
+		font-size: 25px;
+		font-weight: 800;
+	}
+}
+
+.btnTarjeta {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.agregarFavoritos {
+	margin-top: 12px;
+	transition: 1s ease;
+	text-decoration: none;
+	
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.btnAgregarCarrito {
+	font-family: $letraPrincipal;
+	font-weight: 400;
+	letter-spacing: 1.5px;
+	text-decoration: none;
+	color: black;
+	background-color: $colorCrema;
+	border: .5px solid $colorGrisSuave;
+	border-radius: 3px;
+	padding: 10px;
+	width: fit-content;
+	margin-top: 10px;
+	align-self: center;
+	transition: 1s ease;
+	
+	&:hover {
+		cursor: pointer;
+		transform: .5s ease;
+		color: $colorCrema;
+		background-color: $colorGrisOscuro;
+	}
+}
+
+/* FIN SECCION TIENDA */
+
+/* ABOUT */
+
+.about {
+	
+	h2 {
+		margin-left: 100px;
+	}
+	
+	p {
+		font-family: 'Bebas Neue', sans-serif;
+		font-size: 20px;
+		color: #3e3631;
+		text-align: justify;
+		margin-top: 30px;
+		margin-left: 100px;
+		margin-right: 100px;
+	}
+}
+
+/* FIN ABOUT */
+
+/* FOOTER */
+
+footer {
+	min-height: 300px;
+	margin-top: 100px;
+	background-color: $colorCrema;
+	
+	h3 {
+		margin-top: 40px;
+	}
+	
+	input {
+		height: 30px;
+		width: 400px;
+		padding: 10px;
+	}
+}
+
+#btn-Newsletter {
+	text-decoration: none;
+	color: white;
+	padding: 4px;
+	background-color: $colorGrisOscuro;
+}
+
+.socialsContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.socials {
+	margin-top: 50px;
+	
+	h3 {
+		margin-bottom: 20px;
+	}
+	svg {
+		margin-right: 5px;
+	}
+}
+
+#copyright {
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+/* FIN FOOTER */
+
+/* SPINNER CARGA */
+
+#loading {
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	text-align: center;
+	opacity: 0.9;
+	background-color: #fff;
+	z-index: 99;
+}
+
+#loading-image {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 100;
+	height: 80px;
+	width: 80px;
+}
+
+
+
