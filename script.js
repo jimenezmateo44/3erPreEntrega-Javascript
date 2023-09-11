@@ -312,4 +312,5 @@ copyFooter.innerHTML = `
     <p>Desarrollado por Mateo Jimenez. Todos los derechos reservados &copy ${currentYear}</p>
 `;
 //FOOTER
+
 obtenerProductos();
