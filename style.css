@@ -546,7 +546,7 @@ footer input {
     border-radius: 3px;
   }
   .tarjetaCarrito #imgCarrito {
-    height: 35px;
+    display: none;
   }
   .tarjetaCarrito p {
     font-size: 15px;
@@ -580,7 +580,7 @@ footer input {
     border-radius: 3px;
   }
   .tarjetaCarrito #imgCarrito {
-    height: 45px;
+    display: none;
   }
   .tarjetaCarrito p {
     font-size: 15px;
