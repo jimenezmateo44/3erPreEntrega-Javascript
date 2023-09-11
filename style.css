@@ -428,7 +428,7 @@ footer input {
   width: 80px;
 }
 
-@media (min-width: 375px) and (max-width: 600px) {
+@media (min-width: 375px) and (max-width: 800px) {
   .divider {
     width: 80vw;
     margin-left: 40px;
@@ -509,6 +509,88 @@ footer input {
     margin-top: 4.5px;
   }
   #inputCheck:hover {
+    cursor: pointer;
+  }
+  .carritoVacio {
+    font-size: 40px;
+  }
+  #seccionCarrito {
+    position: fixed;
+    background-color: white;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
+    height: 70vh;
+    width: 100vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    overflow: auto;
+  }
+  .botonesCarrito a {
+    font-size: 15px;
+    border-radius: 3px;
+    border: 1px solid black;
+    color: transparent;
+  }
+  .botonesCarrito a:hover {
+    cursor: pointer;
+  }
+  .tarjetaCarrito {
+    margin: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
+  }
+  .tarjetaCarrito #imgCarrito {
+    height: 35px;
+  }
+  .tarjetaCarrito p {
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .tarjetaCarrito p span {
+    color: #E27602;
+  }
+  .tarjetaCarrito a:hover {
+    cursor: pointer;
+  }
+}
+@media (min-width: 800px) and (max-width: 1020px) {
+  .botonesCarrito a {
+    font-size: 20px;
+    border-radius: 3px;
+    border: 1px solid black;
+    color: transparent;
+  }
+  .botonesCarrito a:hover {
+    cursor: pointer;
+  }
+  .tarjetaCarrito {
+    margin: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
+  }
+  .tarjetaCarrito #imgCarrito {
+    height: 45px;
+  }
+  .tarjetaCarrito p {
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .tarjetaCarrito p span {
+    color: #E27602;
+  }
+  .tarjetaCarrito a:hover {
     cursor: pointer;
   }
 }/*# sourceMappingURL=style.css.map */
