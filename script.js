@@ -1,6 +1,8 @@
 // FETCH DE PRODUCTOS
 let productos; 
 
+let carrito = [];
+
 const obtenerProductos = () => {
     fetch('./src/productos/productos.json')
     .then(res => res.json())
@@ -18,7 +20,7 @@ window.onload = () => {
 }
 
 //AGREGAR PRODUCTOS AL CARRITO
-let carrito = [];
+
 
 if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
@@ -243,7 +245,7 @@ const renderizarCarrito = (productos) => {
                 finalizarCompraToastify();
                 contenedor.classList.remove("carritoActive");
                 localStorage.clear();
-                
+                carrito = [];
             });
     }
 } //Fin funcion renderizar carrito
