@@ -59,7 +59,7 @@ const addToCartToastify = () => {
                 },
                 duration: 3000,
                 gravity: 'top',
-                position: 'right'
+                position: 'left'
             }).showToast();
             //toastify notificacion
 
