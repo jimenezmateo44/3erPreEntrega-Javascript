@@ -11,12 +11,29 @@ const obtenerProductos = () => {
         renderizarTarjetas(productos);
         renderizarCarrito(carrito);
         addToCartToastify();
+        mostrarIndicador();
     })
 }
 
 //FUNCION SPINNER DE CARGA
 window.onload = () => {
     document.getElementById("loading").style.display = "none";
+}
+
+
+//FUNCION PUNTO INDICADOR DE PRODUCTO EN CARRITO
+let svgAlerta = document.getElementById("svgAlerta");
+
+const mostrarIndicador = () => {
+    if (carrito.length != 0 || localStorage.length != 0) {
+        svgAlerta.classList.add("active");
+    }
+}
+
+const ocultarIndicador = () => {
+    if (carrito.length == 0 || localStorage.length == 0) {
+        svgAlerta.classList.remove("active");
+    }
 }
 
 //AGREGAR PRODUCTOS AL CARRITO
@@ -72,6 +89,7 @@ const agregarAlCarrito = (productos, evento, carrito) => {
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
     renderizarCarrito(carrito);
+    mostrarIndicador();
 }
 // FIN AGREGAR PRODUCTOS AL CARRITO
 
@@ -214,6 +232,7 @@ const renderizarCarrito = (productos) => {
                 }
                 localStorage.setItem("carrito", JSON.stringify(carrito));
                 renderizarCarrito(carrito);
+                ocultarIndicador();
             }    
         }
         //FIN FUNCION ELIMINAR DEL CARRITO
@@ -225,6 +244,7 @@ const renderizarCarrito = (productos) => {
             boton.addEventListener('click', () => {
                 console.log(carrito);
                 eliminarDelCarrito(boton.id, productos);
+                ocultarIndicador();
             });
         });
 
@@ -246,6 +266,7 @@ const renderizarCarrito = (productos) => {
                 contenedor.classList.remove("carritoActive");
                 localStorage.clear();
                 carrito = [];
+                ocultarIndicador();
             });
     }
 } //Fin funcion renderizar carrito
