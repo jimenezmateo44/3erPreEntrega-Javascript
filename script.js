@@ -37,8 +37,6 @@ const ocultarIndicador = () => {
 }
 
 //AGREGAR PRODUCTOS AL CARRITO
-
-
 if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
 }
