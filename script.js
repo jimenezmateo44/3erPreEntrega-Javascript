@@ -1,18 +1,18 @@
 // FETCH DE PRODUCTOS
-let productos; 
+let productos;
 
 let carrito = [];
 
 const obtenerProductos = () => {
     fetch('./src/productos/productos.json')
-    .then(res => res.json())
-    .then(data => {
-        productos = data;
-        renderizarTarjetas(productos);
-        renderizarCarrito(carrito);
-        addToCartToastify();
-        mostrarIndicador();
-    })
+        .then(res => res.json())
+        .then(data => {
+            productos = data;
+            renderizarTarjetas(productos);
+            renderizarCarrito(carrito);
+            addToCartToastify();
+            mostrarIndicador();
+        })
 }
 
 //FUNCION SPINNER DE CARGA
@@ -92,14 +92,13 @@ const agregarAlCarrito = (productos, evento, carrito) => {
 // FIN AGREGAR PRODUCTOS AL CARRITO
 
 //RENDERIZADO PRODUCTOS
-
 const renderizarTarjetas = (productos) => {
 
     let contenedorProductos = document.getElementById("seccionProductos");
 
     contenedorProductos.innerHTML = "";
 
-    productos.forEach(({ nombre, precio, imagen, id }) => { 
+    productos.forEach(({ nombre, precio, imagen, id }) => {
         let tarjetaProductos = document.createElement("div");
         tarjetaProductos.classList.add("tarjeta");
         tarjetaProductos.innerHTML = `
@@ -122,7 +121,6 @@ const renderizarTarjetas = (productos) => {
     });
 }
 addToCartToastify(); //Funcion de animacion toastify
-
 //FIN RENDERIZADO PRODUCTOS 
 
 //BUSCAR PRODUCTOS
@@ -151,15 +149,14 @@ inputBuscador.addEventListener('keydown', (event) => {
         buscarProductos(productos, inputBuscador);
     }
 });
-
 //FIN BUSCAR PRODUCTOS
 
 //RENDERIZADO DE CARRITO
 let botonVerCarrito = document.getElementById("btnVerCarrito");
-let contenedor =  document.getElementById("seccionCarrito");
+let contenedor = document.getElementById("seccionCarrito");
 
 const renderizarCarrito = (productos) => {
-     contenedor.innerHTML = "";
+    contenedor.innerHTML = "";
 
     let opcionesCompra = document.createElement("div");
     opcionesCompra.className = "opcionesCompra";
@@ -171,11 +168,11 @@ const renderizarCarrito = (productos) => {
         `;
         contenedor.append(opcionesCompra);
     } else {
-            let infoCompra = document.createElement("div");
+        let infoCompra = document.createElement("div");
 
-            infoCompra.className="infoCompra";
+        infoCompra.className = "infoCompra";
 
-            infoCompra.innerHTML = `
+        infoCompra.innerHTML = `
                 <h2>Tu carrito</h2>
                 <a id="btnCerrarCarrito">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -183,14 +180,14 @@ const renderizarCarrito = (productos) => {
                     </svg>
                 </a>   
             `;
-            contenedor.append(infoCompra);
+        contenedor.append(infoCompra);
 
-            productos.forEach(( {nombre, precio, unidades, subtotal, imagen, id }) => {
-                let tarjetaProducto = document.createElement("div");
+        productos.forEach(({ nombre, precio, unidades, subtotal, imagen, id }) => {
+            let tarjetaProducto = document.createElement("div");
 
-                tarjetaProducto.className = "tarjetaCarrito";
-                tarjetaProducto.id = `${id}`;
-                tarjetaProducto.innerHTML = `
+            tarjetaProducto.className = "tarjetaCarrito";
+            tarjetaProducto.id = `${id}`;
+            tarjetaProducto.innerHTML = `
                     <img id="imgCarrito" src=./src/media/${imagen}>
                     <p><span>Nombre</span> <br>${nombre}</p>
                     <p><span>Precio</span> <br>$${precio}</p>
@@ -203,9 +200,8 @@ const renderizarCarrito = (productos) => {
                         </svg>
                     </a> 
                 `;
-                contenedor.appendChild(tarjetaProducto);
-            });
-
+            contenedor.appendChild(tarjetaProducto);
+        });
 
         opcionesCompra.innerHTML = `
             <div class="botonesCarrito">
@@ -215,11 +211,11 @@ const renderizarCarrito = (productos) => {
             
         `;
         contenedor.append(opcionesCompra);
-        
+
         //FUNCION ELIMINAR DEL CARRITO
         const eliminarDelCarrito = (productoId, productos) => {
             let productoEnCarrito = productos.find(producto => producto.id === Number(productoId));
-        
+
             if (productoEnCarrito) {
                 if (productoEnCarrito.unidades > 1) {
                     productoEnCarrito.unidades--;
@@ -231,13 +227,13 @@ const renderizarCarrito = (productos) => {
                 localStorage.setItem("carrito", JSON.stringify(carrito));
                 renderizarCarrito(carrito);
                 ocultarIndicador();
-            }    
+            }
         }
         //FIN FUNCION ELIMINAR DEL CARRITO
-            
+
         //BOTON ELIMINAR DEL CARRITO
         let botonEliminarCarrito = document.querySelectorAll(".botonEliminarCarrito");
-        
+
         botonEliminarCarrito.forEach(boton => {
             boton.addEventListener('click', () => {
                 console.log(carrito);
@@ -247,49 +243,48 @@ const renderizarCarrito = (productos) => {
         });
 
         let botonCerrarCarrito = document.getElementById("btnCerrarCarrito");
-            
+
         botonCerrarCarrito.addEventListener('click', () => {
             contenedor.classList.remove("carritoActive");
         });
 
         let botonSeguirCompra = document.getElementById("btnSeguirCompra");
-        
+
         botonSeguirCompra.addEventListener('click', () => {
             contenedor.classList.remove("carritoActive");
         });
 
         let botonFinalizarCompra = document.getElementById("btnFinalizarCompra");
-            botonFinalizarCompra.addEventListener('click', () => {
-                finalizarCompraToastify();
-                contenedor.classList.remove("carritoActive");
-                localStorage.clear();
-                carrito = [];
-                ocultarIndicador();
-            });
+        botonFinalizarCompra.addEventListener('click', () => {
+            finalizarCompraToastify();
+            contenedor.classList.remove("carritoActive");
+            localStorage.clear();
+            carrito = [];
+            ocultarIndicador();
+        });
     }
 } //Fin funcion renderizar carrito
 botonVerCarrito.addEventListener('click', () => {
     renderizarCarrito(carrito);
-    contenedor.classList.toggle("carritoActive");    
+    contenedor.classList.toggle("carritoActive");
 });
-
 //FIN RENDERIZADO DE CARRITO
 
 //Funcion de animacion toastify "Compra realizada con exito!"
 const finalizarCompraToastify = () => {
-            //toastify notificacion
-            Toastify({
-                text: "Compra realizada con exito!",
-                close: false,
-                style: {
-                    background: "#198754",
-                    color: 'white',
-                },
-                duration: 3000,
-                gravity: 'top',
-                position: 'right'
-            }).showToast();
-            //toastify notificacion
+    //toastify notificacion
+    Toastify({
+        text: "Compra realizada con exito!",
+        close: false,
+        style: {
+            background: "#198754",
+            color: 'white',
+        },
+        duration: 3000,
+        gravity: 'top',
+        position: 'right'
+    }).showToast();
+    //toastify notificacion
 }
 
 //FILTRAR PRODUCTOS
@@ -316,14 +311,12 @@ formFiltrado.addEventListener('submit', event => {
     buscarProductosPorCategoria(productos, selectCategorias.value);
 });
 
-
 let filtradorProductos = document.getElementById("svgFiltrar");
 
 filtradorProductos.addEventListener('click', () => {
     formFiltrado.classList.toggle("activeForm");
 });
 //FIN FILTRAR PRODUCTOS
-
 
 //FOOTER
 let currentYear = new Date().getFullYear();
